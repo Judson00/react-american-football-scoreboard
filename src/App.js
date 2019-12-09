@@ -19,26 +19,45 @@ function App() {
             {/* TODO STEP 3 - We need to change the hardcoded values in these divs to accept dynamic values from our state. */}
 
             <div className="home__score">{lionScore}</div>
+
+            <div className="homeButtons">
+              {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
+              <button className="homeButtons__touchdown" onClick={() => setlionScore(lionScore + 7)}>Home Touchdown</button>
+              <button className="homeButtons__fieldGoal" onClick={() => setlionScore(lionScore + 3)}>Home Field Goal</button>
+            </div>
+
           </div>
+
           <div className="timer">00:03</div>
+
           <div className="away">
             <h2 className="away__name">Tigers</h2>
             <div className="away__score">{tigerScore}</div>
+
+            <div className="awayButtons">
+              <button className="awayButtons__touchdown" onClick={() => settigerScore(tigerScore + 7)}>Away Touchdown</button>
+              <button className="awayButtons__fieldGoal" onClick={() => settigerScore(tigerScore + 3)}>Away Field Goal</button>
+            </div>
+
           </div>
         </div>
         <BottomRow />
       </section>
-      <section className="buttons">
-        <div className="homeButtons">
+
+      {/* <section className="buttons">
+        <div className="homeButtons"> */}
           {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
-          <button className="homeButtons__touchdown" onClick={() => setlionScore(lionScore + 7)}>Home Touchdown</button>
+          {/* <button className="homeButtons__touchdown" onClick={() => setlionScore(lionScore + 7)}>Home Touchdown</button>
           <button className="homeButtons__fieldGoal" onClick={() => setlionScore(lionScore + 3)}>Home Field Goal</button>
         </div>
+
         <div className="awayButtons">
           <button className="awayButtons__touchdown" onClick={() => settigerScore(tigerScore + 7)}>Away Touchdown</button>
           <button className="awayButtons__fieldGoal" onClick={() => settigerScore(tigerScore + 3)}>Away Field Goal</button>
         </div>
-      </section>
+
+      </section> */}
+
     </div>
   );
 }
