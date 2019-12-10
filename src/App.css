@@ -90,6 +90,10 @@
   place-items: center;
 }
 
+.quarter{
+  margin-top: 5.3rem;
+}
+
 .down__value,
 .toGo__value,
 .ballOn__value,
@@ -106,6 +110,10 @@
   border: 1px solid white;
 }
 
+.add-quarter{
+  margin-top: 2rem ;
+}
+
 .buttons {
   width: 50%;
   margin: 0 auto;
@@ -114,9 +122,61 @@
 }
 
 .homeButtons__touchdown,
+.homeButtons_extraPoint,
+.homeButtons_twoPoints,
 .homeButtons__fieldGoal,
 .awayButtons__touchdown,
+.awayButtons_extraPoint,
+.awayButtons_twoPoints,
 .awayButtons__fieldGoal {
-  margin: 1rem;
+  margin: 0rem;
   border-radius: 4px;
 }
+
+.homeButtons__touchdown,
+.awayButtons__touchdown{
+  background: lightgrey;
+  color: black;
+}
+
+.homeButtons__touchdown:hover,
+.awayButtons__touchdown:hover{
+  color: whitesmoke;
+}
+
+.homeButtons_extraPoint,
+.awayButtons_extraPoint{
+  background: grey;
+  color: black;
+}
+
+.homeButtons_extraPoint:hover,
+.awayButtons_extraPoint:hover{
+  color: whitesmoke;
+}
+
+.homeButtons_twoPoints,
+.awayButtons_twoPoints{
+  background: lightgrey;
+  color: black;
+}
+
+.homeButtons_twoPoints:hover,
+.awayButtons_twoPoints:hover{
+  color: white;
+}
+
+.homeButtons__fieldGoal,
+.awayButtons__fieldGoal{
+  background: grey;
+  color: black;
+}
+
+.homeButtons__fieldGoal:hover,
+.awayButtons__fieldGoal:hover{
+  color: whitesmoke;
+}
+
+
+
+
