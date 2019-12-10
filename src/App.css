@@ -90,6 +90,10 @@
   place-items: center;
 }
 
+.quarter{
+  margin-top: 5.3rem;
+}
+
 .down__value,
 .toGo__value,
 .ballOn__value,
@@ -104,6 +108,11 @@
   border-radius: 4px;
   padding: 1.6rem;
   border: 1px solid white;
+}
+
+.add-quarter{
+  background: red;
+  margin-top: 2rem ;
 }
 
 .buttons {

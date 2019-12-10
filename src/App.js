@@ -8,7 +8,6 @@ function App() {
   const [lionScore, setlionScore] = useState(0);
   const [tigerScore, settigerScore] = useState(0);
 
-
   return (
     <div className="container">
       <section className="scoreboard">
