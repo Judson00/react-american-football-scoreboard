@@ -8,15 +8,18 @@ function App() {
   const [lionScore, setlionScore] = useState(0);
   const [tigerScore, settigerScore] = useState(0);
 
+  //Set state for timer
   const [seconds, setSeconds] = useState(0);
   const [tenthseconds,setTenthSeconds] = useState(0)
   const [minute, setMinute] = useState(0);
   const [isActive, setIsActive] = useState(false);
   
+    //Toggle function
     function toggle() {
       setIsActive(!isActive);
     }
   
+    //Reset function
     function reset() {
       setMinute(0)
       setTenthSeconds(0)
@@ -24,6 +27,7 @@ function App() {
       setIsActive(false);
     }
     
+    //Minute counter
     let min = useEffect(() => {
       let interval = null;
       if (isActive) {
@@ -36,6 +40,7 @@ function App() {
       return () => clearInterval(interval);
     }, [isActive, minute]);
       
+    //Tenth-place Second counder
    let tenthsec = useEffect(() => {
       let interval = null;
       if (isActive) {
@@ -48,6 +53,7 @@ function App() {
       return () => clearInterval(interval);
     }, [isActive, tenthseconds]);
 
+    //One-place second counter
    let sec = useEffect(() => {
       let interval = null;
       if (isActive) {
