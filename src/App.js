@@ -1,5 +1,5 @@
 //TODO: STEP 1 - Import the useState hook.
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "./App.css";
 import BottomRow from "./BottomRow";
 
@@ -7,6 +7,59 @@ function App() {
   //TODO: STEP 2 - Establish your application's state with some useState hooks.  You'll need one for the home score and another for the away score.
   const [lionScore, setlionScore] = useState(0);
   const [tigerScore, settigerScore] = useState(0);
+
+  const [seconds, setSeconds] = useState(0);
+  const [tenthseconds,setTenthSeconds] = useState(0)
+  const [minute, setMinute] = useState(0);
+  const [isActive, setIsActive] = useState(false);
+  
+    function toggle() {
+      setIsActive(!isActive);
+    }
+  
+    function reset() {
+      setMinute(0)
+      setTenthSeconds(0)
+      setSeconds(0);
+      setIsActive(false);
+    }
+    
+    let min = useEffect(() => {
+      let interval = null;
+      if (isActive) {
+        interval = setInterval(() => {
+          setMinute((minute) =>  (minute < 9) ? minute + 1 : minute = 0 );
+        }, 60000);
+      } else if (!isActive && minute !== 0) {
+        clearInterval(interval);
+      }
+      return () => clearInterval(interval);
+    }, [isActive, minute]);
+      
+   let tenthsec = useEffect(() => {
+      let interval = null;
+      if (isActive) {
+        interval = setInterval(() => {
+          setTenthSeconds((tenthseconds) =>  (tenthseconds < 5) ? tenthseconds +1 : tenthseconds = 0 );
+        }, 10000);
+      } else if (!isActive && tenthseconds !== 0) {
+        clearInterval(interval);
+      }
+      return () => clearInterval(interval);
+    }, [isActive, tenthseconds]);
+
+   let sec = useEffect(() => {
+      let interval = null;
+      if (isActive) {
+        interval = setInterval(() => {
+          setSeconds((seconds) =>  { if (seconds < 9) { return seconds +1 } else {  return seconds = 0} } );
+        }, 1000);
+      } else if (!isActive && seconds !== 0) {
+        clearInterval(interval);
+      }
+      return () => clearInterval(interval);
+    }, [isActive, seconds]);
+
 
   return (
     <div className="container">
@@ -29,7 +82,9 @@ function App() {
 
           </div>
 
-          <div className="timer">00:03</div>
+          <div className="timer">{minute}:{tenthseconds}{seconds}</div>
+            <button className="start-button"  onClick={() => toggle()}>Start/Stop</button>
+            <button className="reset-button"  onClick={() => reset()}>Reset</button>
 
           <div className="away">
             <h2 className="away__name">Tigers</h2>
